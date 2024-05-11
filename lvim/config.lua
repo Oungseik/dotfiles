@@ -42,9 +42,7 @@ formatters.setup {
 
 -- -- Additional Plugins <https://www.lunarvim.org/docs/plugins#user-plugins>
 lvim.plugins = {
-  {
-    "catppuccin/nvim",
-  },
+  { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
   {
     "ThePrimeagen/harpoon",
     branch = "harpoon2",
