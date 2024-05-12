@@ -50,6 +50,19 @@
   #   };
   # };
 
+services.mpd = {
+  enable = true;
+  musicDirectory = /home/oung/Music;
+  extraConfig = ''
+    # must specify one or more outputs in order to play audio!
+    # (e.g. ALSA, PulseAudio, PipeWire), see next sections
+  '';
+
+  # Optional:
+  # network.listenAddress = "any"; # if you want to allow non-localhost connections
+  startWhenNeeded = true; # systemd feature: only start MPD service upon connection to its socket
+};
+
   # Configure keymap in X11
   services.xserver = {
     layout = "us";
@@ -95,6 +108,7 @@
       lunarvim
       neovide
       nodejs_20
+      pavucontrol
       python3
       python311Packages.pip
       vscode
