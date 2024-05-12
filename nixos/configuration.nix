@@ -101,6 +101,7 @@ services.mpd = {
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
       bun
+      brightnessctl
       deno
       firefox
       hyprland
@@ -113,8 +114,9 @@ services.mpd = {
       python311Packages.pip
       vscode
       rofi
-      starship
       rustup
+      starship
+      xfce.thunar
       wofi
       waybar
     #  thunderbird
