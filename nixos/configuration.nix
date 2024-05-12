@@ -50,18 +50,21 @@
   #   };
   # };
 
-services.mpd = {
-  enable = true;
-  musicDirectory = /home/oung/Music;
-  extraConfig = ''
-    # must specify one or more outputs in order to play audio!
-    # (e.g. ALSA, PulseAudio, PipeWire), see next sections
-  '';
+  services.mpd = {
+    enable = true;
+    musicDirectory = /home/oung/Music;
+    extraConfig = ''
+      audio_output {
+        type "pipewire"
+        name "My PipeWire Output"
+      }
+    '';
 
-  # Optional:
-  # network.listenAddress = "any"; # if you want to allow non-localhost connections
-  startWhenNeeded = true; # systemd feature: only start MPD service upon connection to its socket
-};
+    # Optional:
+    # network.listenAddress = "any"; # if you want to allow non-localhost connections
+    startWhenNeeded = true; # systemd feature: only start MPD service upon connection to its socket
+    user = "userRunningPipeWire";
+  };
 
   # Configure keymap in X11
   services.xserver = {
@@ -100,12 +103,15 @@ services.mpd = {
     description = "Min Aung Thu Win";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
+      # android-studio
       bun
       brightnessctl
       deno
       firefox
       hyprland
       google-chrome
+      grim
+      jq
       lunarvim
       neovide
       nodejs_20
@@ -115,10 +121,12 @@ services.mpd = {
       vscode
       rofi
       rustup
+      slurp
       starship
       xfce.thunar
-      wofi
       waybar
+      wl-clipboard
+      wofi
     #  thunderbird
     ];
   };
