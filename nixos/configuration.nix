@@ -53,17 +53,15 @@
   services.mpd = {
     enable = true;
     musicDirectory = /home/oung/Music;
-    extraConfig = ''
-      audio_output {
-        type "pipewire"
-        name "My PipeWire Output"
-      }
-    '';
 
     # Optional:
     # network.listenAddress = "any"; # if you want to allow non-localhost connections
     startWhenNeeded = true; # systemd feature: only start MPD service upon connection to its socket
-    user = "userRunningPipeWire";
+    user = "oung";
+  };
+
+  systemd.services.mpd.environment = {
+    XDG_RUNTIME_DIR = "/run/user/${toString config.users.users.oung.uid}"; # User-id must match above user. MPD will look inside this directory for the PipeWire socket.
   };
 
   # Configure keymap in X11
@@ -103,10 +101,9 @@
     description = "Min Aung Thu Win";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
-      # android-studio
-      bun
+      # bun
       brightnessctl
-      deno
+      # deno
       firefox
       hyprland
       google-chrome
@@ -127,7 +124,6 @@
       waybar
       wl-clipboard
       wofi
-    #  thunderbird
     ];
   };
 
@@ -139,6 +135,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+   amberol
    alacritty
    curl
    clang
