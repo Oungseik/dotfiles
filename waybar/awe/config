@@ -10,6 +10,8 @@
     "modules-right": [
         "idle_inhibitor",
         "custom/separator",
+        "hyprland/language",
+        "custom/separator",
         "backlight", 
         "custom/separator",
         "battery",
@@ -38,22 +40,22 @@
             "default": ""
         }
     },
-    // "custom/wmname": {
-    //  "format": " ",
-    //  "tooltip": false,
-    // },
+     "custom/wmname": {
+      "format": " ",
+      "tooltip": false,
+     },
     "hyprland/workspaces": {
         "format": "{icon}",
         "format-icons": {
-            "1": "",
-            "2": "",
-            "3": "",
-            "4": "",
-            "5": "",
-            "6": "",
-            "7": "",
-            "8": "",
-            "9": "",
+            "1": "1.",
+            "2": "2.",
+            "3": "3.",
+            "4": "4.",
+            "5": "5.",
+            "6": "6.",
+            "7": "7.",
+            "8": "8.",
+            "9": "9.",
             "urgent": "",
             "focused": "",
             "default": ""
@@ -73,8 +75,8 @@
     "idle_inhibitor": {
         "format": "{icon}",
         "format-icons": {
-            "activated": "",
-            "deactivated": ""
+            "activated": " ",
+            "deactivated": " "
         }
     },
     "tray": {
@@ -88,7 +90,7 @@
         "format-alt": " {:%a,%b %d}" // Icon: calendar-alt
     },
     "cpu": {
-        "format": "&#8239;{usage}%",
+        "format": " &#8239;{usage}%",
         "tooltip": false,
         "on-click": "kitty -e 'htop'"
     },
@@ -134,7 +136,7 @@
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
         // "format-wifi": " &#8239;({signalStrength}%)",
-        "format-wifi": "{icon}&#8239;({signalStrength}%)",
+        "format-wifi": "{icon}&#8239;{signalStrength}%",
         "format-icons": ["󰤟 ", "󰤢 ", "󰤥 ", "󰤨 " ],
         "format-ethernet": "&#8239;{ifname}: {ipaddr}/{cidr}",
         "format-linked": "&#8239;{ifname} (No IP)",
@@ -205,5 +207,8 @@
         "exec": "echo '{\"class\": \"audio recording\"}'",
         "exec-if": "pgrep ffmpeg",
     },
-
+    "hyprland/language": {
+        "format": "  {short}",
+        "keyboard-name": "at-translated-set-2-keyboard"
+    },
 }
