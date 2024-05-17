@@ -58,6 +58,12 @@
     # network.listenAddress = "any"; # if you want to allow non-localhost connections
     startWhenNeeded = true; # systemd feature: only start MPD service upon connection to its socket
     user = "oung";
+    extraConfig = ''
+      audio_output {
+        type "pipewire"
+        name "My PipeWire Output"
+      }
+    '';
   };
 
   systemd.services.mpd.environment = {
@@ -142,12 +148,11 @@
    deja-dup
    gcc
    git
-   lxappearance
+   htop
    neovim
    openvpn
    tmux
    unzip
-   wezterm
    wget
    xsel
   ];
