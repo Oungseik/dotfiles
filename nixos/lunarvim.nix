@@ -40,14 +40,14 @@ stdenv.mkDerivation (finalAttrs: {
   };
 
   # Pull in the fix for Nerd Fonts until the next release
-  # patches = [
-  #   (
-  #     fetchpatch {
-  #       url = "https://github.com/LunarVim/LunarVim/commit/d15c8d77d4d3c9f3843c73b3d57ad6f4e2415f76.patch";
-  #       sha256 = "sha256-zLbb1uR9xU5f6BM9IufymNFixKrrSPxOKuzRl/U/RI0=";
-  #     }
-  #   )
-  # ];
+  patches = [
+    (
+      fetchpatch {
+        url = "https://github.com/LunarVim/LunarVim/commit/d187cbd03fbc8bd1b59250869e0e325518bf8798.patch";
+        sha256 = "sha256-ktkQ2GiIOhbVOMjy1u5Bf8dJP4SXHdG4j9OEFa9Fm7w=";
+      }
+    )
+  ];
 
   nativeBuildInputs = [
     gnused

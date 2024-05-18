@@ -4,6 +4,9 @@
 
 { config, pkgs, ... }:
 
+let
+  lunarvim = pkgs.callPackage ./lunarvim.nix { };
+in
 {
   imports =
     [ # Include the results of the hardware scan.
