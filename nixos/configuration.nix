@@ -117,6 +117,7 @@ in
       # deno
       firefox
       hyprland
+      hyprlock
       google-chrome
       grim
       jq
@@ -156,9 +157,11 @@ in
    deja-dup
    gcc
    git
+   home-manager
    htop
    neovim
    openvpn
+   playerctl
    tmux
    unzip
    wget
@@ -175,7 +178,9 @@ in
   # };
 
   programs.zsh.enable = true;
-  programs.hyprland.enable = true;
+  programs.hyprland = {
+    enable = true;
+  };
 
   # Fonts
   # fonts = {
