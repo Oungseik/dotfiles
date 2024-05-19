@@ -73,6 +73,7 @@ lvim.plugins = {
 }
 
 lvim.builtin.nvimtree.setup.view.side = "right"
+lvim.transparent_window = true
 
 vim.o.termguicolors = true
 lvim.format_on_save = false

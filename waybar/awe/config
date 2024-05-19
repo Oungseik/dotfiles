@@ -5,7 +5,8 @@
     // "width": 1350,
     "margin": "3, 0, 2, 0",
     // Choose the order of the modules
-    "modules-left": ["custom/wmname","sway/workspaces","hyprland/workspaces","sway/mode","cpu","custom/separator","memory","custom/separator","network", "custom/recorder", "custom/audiorec"],
+    // "modules-left": ["custom/wmname", "custom/separator", "sway/workspaces","hyprland/workspaces", "sway/mode", "custom/separator","cpu","custom/separator","memory","custom/separator","network", "custom/recorder", "custom/audiorec"],
+    "modules-left": ["custom/wmname", "custom/separator", "hyprland/workspaces", "custom/separator","cpu","custom/separator","memory","custom/separator","network", "custom/recorder", "custom/audiorec"],
     "modules-center": ["tray","mpd"],
     "modules-right": [
         "idle_inhibitor",
