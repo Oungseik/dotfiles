@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 let
   lunarvim = pkgs.callPackage ./lunarvim.nix { };
@@ -16,6 +16,10 @@ in
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+
+  hardware.bluetooth.enable = true; # enables support for Bluetooth
+  hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
+  services.blueman.enable = true;
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
@@ -120,6 +124,7 @@ in
       hyprlock
       google-chrome
       grim
+      inputs.helix.packages.${pkgs.system}.helix
       jq
       lunarvim
       neovide
