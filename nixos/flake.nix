@@ -6,9 +6,16 @@
     helix.url = "github:helix-editor/helix/master";
   };
 
-  outputs = { self, nixpkgs, ... }@inputs: {
+  outputs = { self, nixpkgs, ... }@inputs: 
+  let
+    system = "x86_64-linux";
+    pkgs = import nixpkgs { 
+      inherit system;
+    };
+  in
+  {
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
+      inherit system;
       specialArgs = { inherit inputs; };
       modules = [
         ./configuration.nix
