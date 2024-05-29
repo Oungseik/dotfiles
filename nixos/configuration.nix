@@ -82,9 +82,7 @@
     description = "Min Aung Thu Win";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
-      # bun
       brightnessctl
-      # deno
       evince
       firefox
       hyprland
@@ -132,6 +130,9 @@
    git
    home-manager
    htop
+   mpc-cli
+   mpd
+   ncmpcpp
    neovim
    openvpn
    playerctl
