@@ -4,9 +4,6 @@
 
 { config, pkgs, inputs, ... }:
 
-let
-  lunarvim = pkgs.callPackage ./lunarvim.nix { };
-in
 {
   imports =
     [ # Include the results of the hardware scan.
@@ -47,37 +44,6 @@ in
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
   # services.xserver.desktopManager.gnome.enable = true;
-
-  # Enable AwesomeWM
-  # services.xserver = {
-  #   windowManager.awesome = {
-  #     enable = true;
-  #     luaModules = with pkgs.luaPackages; [
-  #       luarocks # is the package manager for Lua modules
-  #       luadbi-mysql # Database abstraction layer
-  #     ];
-  #   };
-  # };
-
-  services.mpd = {
-    enable = true;
-    musicDirectory = /home/oung/Music;
-
-    # Optional:
-    # network.listenAddress = "any"; # if you want to allow non-localhost connections
-    startWhenNeeded = true; # systemd feature: only start MPD service upon connection to its socket
-    user = "oung";
-    extraConfig = ''
-      audio_output {
-        type "pipewire"
-        name "My PipeWire Output"
-      }
-    '';
-  };
-
-  systemd.services.mpd.environment = {
-    XDG_RUNTIME_DIR = "/run/user/${toString config.users.users.oung.uid}"; # User-id must match above user. MPD will look inside this directory for the PipeWire socket.
-  };
 
   # Configure keymap in X11
   services.xserver.xkb = {
