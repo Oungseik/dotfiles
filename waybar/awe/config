@@ -165,7 +165,7 @@
       "on-click": "pavucontrol"
     },
     "mpd": {
-      "format": "{stateIcon} {artist} - {title}",
+      "format": "♪ {artist} - {title}",
       "format-disconnected": "🎶",
       "format-stopped": "♪",
       "interval": 10,
@@ -188,7 +188,8 @@
       },
       "tooltip-format": "MPD (connected)",
       "tooltip-format-disconnected": "MPD (disconnected)",
-      "max-length": 45
+      "max-length": 45,
+      "on-click": "mpc toggle"
     },
 
     "custom/recorder": {

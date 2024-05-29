@@ -84,20 +84,22 @@
     packages = with pkgs; [
       brightnessctl
       evince
+      fd
       firefox
       hyprland
       hyprlock
       gammastep
       google-chrome
+      gnumake
       grim
-      inputs.helix.packages.${pkgs.system}.helix
+      # inputs.helix.packages.${pkgs.system}.helix
       jq
-      lunarvim
       neovide
       nodejs_20
       pavucontrol
       python3
       python311Packages.pip
+      python311Packages.pynvim
       vscode
       rofi
       rustup
