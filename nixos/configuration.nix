@@ -20,6 +20,11 @@
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
+  virtualisation.docker.rootless = {
+    enable = true;
+    setSocketVariable = true;
+  };
+
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -38,8 +43,6 @@
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
-  services.xserver.gdk-pixbuf.modulePackages = [ pkgs.librsvg ];
-
 
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
@@ -52,7 +55,9 @@
   };
 
   # Enable CUPS to print documents.
-  services.printing.enable = true;
+  # services.printing.enable = true;
+  services.gvfs.enable = true;
+  services.udisks2.enable = true;
 
   # Enable sound with pipewire.
   sound.enable = true;
@@ -80,7 +85,7 @@
   users.users.oung = {
     isNormalUser = true;
     description = "Min Aung Thu Win";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
     packages = with pkgs; [
       brightnessctl
       evince
@@ -93,7 +98,9 @@
       gnumake
       grim
       # inputs.helix.packages.${pkgs.system}.helix
+      lunarvim
       jq
+      nekoray
       neovide
       nodejs_20
       pavucontrol
@@ -111,7 +118,6 @@
       wofi
     ];
   };
-
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -157,20 +163,7 @@
   programs.hyprland = {
     enable = true;
   };
-
-  # Fonts
-  # fonts = {
-  #   enableDefaultPackages = true;
-  #   packages = with pkgs; [
-  #     roboto
-  #     # (nerdfonts.override { fonts = [  ]; })
-  #   ];
-
-  #   fontconfig = {
-  #     allowBitmaps = true;
-  #   };
-  # };
-
+  programs.gdk-pixbuf.modulePackages = [ pkgs.librsvg ];
 
   # List services that you want to enable:
 
@@ -189,6 +182,6 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "23.11"; # Did you read the comment?
+  system.stateVersion = "24.05"; # Did you read the comment?
 
 }

@@ -3,15 +3,15 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+
+    nixvim.url = "github:Oungseik/nixvim";
+    nixvim.inputs.nixpkgs.follows = "nixpkgs";
     # helix.url = "github:helix-editor/helix/master";
   };
 
   outputs = { self, nixpkgs, ... }@inputs: 
   let
     system = "x86_64-linux";
-    pkgs = import nixpkgs { 
-      inherit system;
-    };
   in
   {
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
