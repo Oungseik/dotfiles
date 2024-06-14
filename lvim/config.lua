@@ -52,7 +52,7 @@ lvim.plugins = {
     end,
 
     keys = {
-      { "<leader>ma", function() require("harpoon"):list():append() end, desc = "add file to harpoon list", },
+      { "<leader>ma", function() require("harpoon"):list():add() end, desc = "add file to harpoon list", },
       { "<leader>mr", function() require("harpoon"):list():remove() end, desc = "remove file from harpoon list", },
       { "<leader>mR", function() require("harpoon"):list():clear() end,  desc = "clear harpoon list", },
       {
