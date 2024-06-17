@@ -25,6 +25,13 @@
     setSocketVariable = true;
   };
 
+  virtualisation.virtualbox = {
+    host.enable = true;
+    guest.enable = true;
+    guest.dragAndDrop = true;
+  };
+  users.extraGroups.vboxusers.members = [ "oung" ];
+
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -88,6 +95,7 @@
     extraGroups = [ "networkmanager" "wheel" "docker" ];
     packages = with pkgs; [
       brightnessctl
+      dunst
       evince
       fd
       firefox
@@ -99,6 +107,7 @@
       grim
       # inputs.helix.packages.${pkgs.system}.helix
       lunarvim
+      libnotify
       jq
       nekoray
       neovide
@@ -165,6 +174,11 @@
   };
   programs.gdk-pixbuf.modulePackages = [ pkgs.librsvg ];
 
+  xdg.portal = {
+    enable = true;
+    extraPortals = [ pkgs.xdg-desktop-portal-hyprland ];
+  };
+
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
@@ -183,5 +197,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "24.05"; # Did you read the comment?
-
 }
