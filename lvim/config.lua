@@ -10,8 +10,8 @@ vim.opt.relativenumber = true
 
 -- add your own keymapping
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
-lvim.keys.normal_mode["<Tab>"] = ":BufferLineCycleNext<CR>"
-lvim.keys.normal_mode["<S-Tab>"] = ":BufferLineCyclePrev<CR>"
+-- lvim.keys.normal_mode["<Tab>"] = ":BufferLineCycleNext<CR>"
+-- lvim.keys.normal_mode["<S-Tab>"] = ":BufferLineCyclePrev<CR>"
 lvim.keys.normal_mode["<S-l>"] = ":BufferLineCycleNext<CR>"
 lvim.keys.normal_mode["<S-h>"] = ":BufferLineCyclePrev<CR>"
 
@@ -52,7 +52,7 @@ lvim.plugins = {
     end,
 
     keys = {
-      { "<leader>ma", function() require("harpoon"):list():add() end, desc = "add file to harpoon list", },
+      { "<leader>ma", function() require("harpoon"):list():add() end,    desc = "add file to harpoon list", },
       { "<leader>mr", function() require("harpoon"):list():remove() end, desc = "remove file from harpoon list", },
       { "<leader>mR", function() require("harpoon"):list():clear() end,  desc = "clear harpoon list", },
       {
@@ -70,6 +70,22 @@ lvim.plugins = {
       { "<leader>5", function() require("harpoon"):list():select(5) end, desc = "harpoon to file 5", },
     },
   },
+  {
+    "vhyrro/luarocks.nvim",
+    priority = 1000,
+    config = true,
+    opts = {
+      rocks = { "lua-curl", "nvim-nio", "mimetypes", "xml2lua" }
+    }
+  },
+  {
+    "rest-nvim/rest.nvim",
+    ft = "http",
+    dependencies = { "luarocks.nvim" },
+    config = function()
+      require("rest-nvim").setup()
+    end,
+  }
 }
 
 lvim.builtin.nvimtree.setup.view.side = "right"
