@@ -88,6 +88,21 @@ lvim.plugins = {
   }
 }
 
+lvim.lsp.automatic_configuration.skipped_servers = vim.tbl_filter(function(server)
+  return server ~= "sqlls"
+end, lvim.lsp.automatic_configuration.skipped_servers)
+
+require("lvim.lsp.manager").setup("sqlls", {
+  cmd = { "sql-language-server", "up", "--method", "stdio" },
+  filetypes = { "sql", "mysql" },
+  root_dir = function() return vim.loop.cwd() end,
+})
+
+lvim.builtin.which_key.mappings["r"] = {
+  name = "REST client",
+  r = { "<cmd>Rest run<CR>", "Run REST under cursor" }
+}
+
 lvim.builtin.nvimtree.setup.view.side = "right"
 lvim.transparent_window = true
 
