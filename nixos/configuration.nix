@@ -14,9 +14,9 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  hardware.bluetooth.enable = true; # enables support for Bluetooth
-  hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
-  services.blueman.enable = true;
+  # hardware.bluetooth.enable = true; # enables support for Bluetooth
+  # hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
+  # services.blueman.enable = true;
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
@@ -168,6 +168,8 @@
   #   enableSSHSupport = true;
   # };
 
+  programs.ssh.enableAskPassword = true;
+  programs.ssh.askPassword = "systemd-ask-password";
   programs.zsh.enable = true;
   programs.hyprland = {
     enable = true;
@@ -196,5 +198,5 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "24.05"; # Did you read the comment?
+  system.stateVersion = "23.11"; # Did you read the comment?
 }
