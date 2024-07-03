@@ -8,7 +8,7 @@ size = 13
 
 [font.normal]
 family = "JetBrainsMono NF"
-style = "Medium"
+style = "Regular"
 
 [font.offset]
 x = -1
@@ -22,7 +22,7 @@ mods = "Shift|Control"
 [window]
 decorations = "full"
 dynamic_padding = true
-opacity = 0.9
+opacity = 0.98
 title = "Alacritty"
 
 [window.padding]
