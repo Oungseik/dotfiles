@@ -36,7 +36,7 @@
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
+  # networking.proxy.default = "127.0.0.1:2081";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Enable networking
@@ -94,6 +94,7 @@
     description = "Min Aung Thu Win";
     extraGroups = [ "networkmanager" "wheel" "docker" ];
     packages = with pkgs; [
+      alacritty
       brightnessctl
       dunst
       evince
@@ -106,6 +107,7 @@
       gnumake
       grim
       # inputs.helix.packages.${pkgs.system}.helix
+      kitty
       lunarvim
       libnotify
       jq
@@ -125,6 +127,7 @@
       waybar
       wl-clipboard
       wofi
+      yazi
     ];
   };
 
@@ -132,14 +135,13 @@
   nixpkgs.config.allowUnfree = true;
 
   fonts.packages = with pkgs; [
-    (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+    # (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
   ];
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
    amberol
-   alacritty
    curl
    clang
    deja-dup
@@ -168,7 +170,7 @@
   #   enableSSHSupport = true;
   # };
 
-  programs.ssh.enableAskPassword = true;
+  programs.ssh.enableAskPassword = false;
   programs.ssh.askPassword = "systemd-ask-password";
   programs.zsh.enable = true;
   programs.hyprland = {
