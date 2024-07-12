@@ -94,7 +94,6 @@
     description = "Min Aung Thu Win";
     extraGroups = [ "networkmanager" "wheel" "docker" ];
     packages = with pkgs; [
-      alacritty
       brightnessctl
       dunst
       evince
@@ -110,7 +109,6 @@
       kitty
       lunarvim
       libnotify
-      jq
       nekoray
       neovide
       nodejs_20
@@ -123,11 +121,8 @@
       rustup
       slurp
       starship
-      xfce.thunar
       waybar
       wl-clipboard
-      wofi
-      yazi
     ];
   };
 
@@ -152,7 +147,6 @@
    mpc-cli
    mpd
    ncmpcpp
-   neovim
    openvpn
    playerctl
    tmux
