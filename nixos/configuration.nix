@@ -5,10 +5,9 @@
 { config, pkgs, inputs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  imports = [ # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -110,7 +109,6 @@
       lunarvim
       libnotify
       nekoray
-      neovide
       nodejs_20
       pavucontrol
       python3
@@ -129,32 +127,29 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  fonts.packages = with pkgs; [
-    # (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
-  ];
+  fonts.packages = with pkgs;
+    [
+      # (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+    ];
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-   amberol
-   curl
-   clang
-   deja-dup
-   gcc
-   git
-   home-manager
-   htop
-   mpc-cli
-   mpd
-   ncmpcpp
-   openvpn
-   playerctl
-   tmux
-   unzip
-   wget
-   xsel
+    amberol
+    curl
+    clang
+    deja-dup
+    gcc
+    git
+    home-manager
+    htop
+    openvpn
+    playerctl
+    tmux
+    unzip
+    wget
+    xsel
   ];
-
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -167,9 +162,7 @@
   programs.ssh.enableAskPassword = false;
   programs.ssh.askPassword = "systemd-ask-password";
   programs.zsh.enable = true;
-  programs.hyprland = {
-    enable = true;
-  };
+  programs.hyprland = { enable = true; };
   programs.gdk-pixbuf.modulePackages = [ pkgs.librsvg ];
 
   xdg.portal = {
