@@ -6,7 +6,7 @@
 -- vim options
 vim.opt.shiftwidth = 2
 vim.opt.tabstop = 2
-vim.opt.relativenumber = true
+vim.opt.relativenumber = false
 
 -- add your own keymapping
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
@@ -105,17 +105,6 @@ lvim.builtin.which_key.mappings["r"] = {
 
 lvim.builtin.nvimtree.setup.view.side = "right"
 lvim.transparent_window = true
-
-
-lvim.builtin.treesitter.highlight.disable = function()
-  if vim.fn.strwidth(vim.fn.getline('.')) > 300
-      or vim.fn.getfsize(vim.fn.expand('%')) > 1024 * 1024 then
-    return false
-  else
-    return true
-  end
-end
-
 
 vim.o.termguicolors = true
 lvim.format_on_save = false
