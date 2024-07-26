@@ -1,7 +1,8 @@
+// vim:set filetype=json5 :
 {
     "layer": "top",
     "position": "top",
-    "height": 33,
+    "height": 34,
     // "width": 1350,
     "margin": "3, 0, 2, 0",
     // Choose the order of the modules
@@ -87,6 +88,7 @@
     "clock": {
         "interval": 1,
         "locale": "C", 
+        "tooltip": false,
         "format": " {:%I:%M %p}",
         "format-alt": " {:%a,%b %d}" // Icon: calendar-alt
     },
@@ -114,6 +116,7 @@
     },
     "backlight": {
         // "device": "acpi_video1",
+        "tooltip": false,
         "format": "{icon}&#8239;{percent}%",
         "format-icons": ["💡", "💡"],
         "on-scroll-down": "brightnessctl -c backlight set 1%-",
