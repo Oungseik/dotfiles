@@ -7,7 +7,7 @@
     "margin": "3, 0, 2, 0",
     // Choose the order of the modules
     // "modules-left": ["custom/wmname", "custom/separator", "sway/workspaces","hyprland/workspaces", "sway/mode", "custom/separator","cpu","custom/separator","memory","custom/separator","network", "custom/recorder", "custom/audiorec"],
-    "modules-left": ["custom/wmname", "custom/separator", "hyprland/workspaces", "custom/separator","cpu","custom/separator","memory","custom/separator","network", "custom/recorder", "custom/audiorec"],
+    "modules-left": ["custom/wmname", "custom/separator", "hyprland/workspaces", "custom/separator","cpu","temperature","custom/separator","memory","custom/separator","network", "custom/recorder", "custom/audiorec"],
     "modules-center": ["tray","mpd"],
     "modules-right": [
         "idle_inhibitor",
@@ -95,7 +95,7 @@
     "cpu": {
         "format": " &#8239;{usage}%",
         "tooltip": false,
-        "on-click": "alacritty -e 'htop'"
+        "on-click": "alacritty -e 'btop'"
     },
     "memory": {
         "interval": 30,
@@ -135,7 +135,6 @@
         // "format-good": "", // An empty format will hide the module
         // "format-full": "",
         "format-icons": [" ", " ", " ", " ", " "]
-        // "format-icons": [" ", " ", " ", " ", " "]
     },
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
