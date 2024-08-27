@@ -1,4 +1,4 @@
-local wezterm = require "wezterm"
+local wezterm = require("wezterm")
 
 local config = wezterm.config_builder()
 
@@ -14,10 +14,10 @@ config.front_end = "WebGpu"
 config.window_background_opacity = 0.95
 
 config.window_padding = {
-  left = 1,
-  right = 1,
-  top = 1,
-  bottom = 1,
+	left = 1,
+	right = 1,
+	top = 1,
+	bottom = 1,
 }
 
 return config
