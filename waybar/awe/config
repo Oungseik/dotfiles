@@ -7,7 +7,7 @@
     "margin": "3, 0, 2, 0",
     // Choose the order of the modules
     // "modules-left": ["custom/wmname", "custom/separator", "sway/workspaces","hyprland/workspaces", "sway/mode", "custom/separator","cpu","custom/separator","memory","custom/separator","network", "custom/recorder", "custom/audiorec"],
-    "modules-left": ["custom/wmname", "custom/separator", "hyprland/workspaces", "custom/separator","cpu","temperature","custom/separator","memory","custom/separator","network", "custom/recorder", "custom/audiorec"],
+    "modules-left": ["custom/wmname", "custom/separator", "hyprland/workspaces", "custom/separator","cpu","custom/separator","memory","custom/separator","network", "custom/recorder", "custom/audiorec"],
     "modules-center": ["tray","mpd"],
     "modules-right": [
         "idle_inhibitor",
@@ -106,20 +106,19 @@
         "warning": 70,
         "critical": 90
     },
-    "temperature": {
-        // "thermal-zone": 2,
-        // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
-        "critical-threshold": 80,
-        // "format-critical": "{temperatureC}°C {icon}",
-        "format": "{icon}&#8239;{temperatureC}°C",
-        "format-icons": ["", "", ""]
-    },
+    // "temperature": {
+    //     // "thermal-zone": 2,
+    //     // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+    //     "critical-threshold": 80,
+    //     // "format-critical": "{temperatureC}°C {icon}",
+    //     "format": "{icon}&#8239;{temperatureC}°C",
+    //     "format-icons": ["", "", ""]
+    // },
     "backlight": {
         // "device": "acpi_video1",
         "tooltip": false,
         "format": "{icon}&#8239;{percent}%",
-        "format-icons": ["💡", "💡"],
-        "on-scroll-down": "brightnessctl -c backlight set 1%-",
+        "format-icons": ["󱩎 ", "󱩏 ", "󱩐 ", "󱩑 ", "󱩒 ", "󱩓 ", "󱩔 ", "󱩕 ", "󱩖 ", "󰛨 "], "on-scroll-down": "brightnessctl -c backlight set 1%-",
         "on-scroll-up": "brightnessctl -c backlight set +1%"
     },
     "battery": {

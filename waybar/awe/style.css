@@ -137,7 +137,7 @@ label:focus {
 }
 
 #backlight {
-    color: @accent2;
+    color: @accent3;
 }
 
 #network {
