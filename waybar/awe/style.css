@@ -11,6 +11,7 @@
 @define-color accent4 #bb9af7;
 @define-color accent5 #7da6ff;
 @define-color accent6 #0db9d7;
+@define-color accent7 #eed49f;
 
 * {
     /* `otf-font-awesome` is required to be installed for icons */
@@ -137,7 +138,7 @@ label:focus {
 }
 
 #backlight {
-    color: @accent3;
+    color: @accent7;
 }
 
 #network {
