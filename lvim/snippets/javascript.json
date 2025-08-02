@@ -1,9 +1,0 @@
-{
-  "jsdoc-comment": {
-    "prefix": "/**",
-    "body": [
-      "/** @$1 */"
-    ],
-    "description": "create comment block for jsdoc"
-  }
-}
