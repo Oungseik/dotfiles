@@ -9,7 +9,6 @@ set-option -g default-shell /run/current-system/sw/bin/zsh
 set -ga terminal-overrides ",xterm-256color*:Tc"
 set -g mouse on
 set -g focus-events on
-set -s set-clipboard on
 
 # set -g status-position top
 setw -g mode-keys vi
