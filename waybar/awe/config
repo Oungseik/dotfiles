@@ -2,7 +2,7 @@
 {
   "layer": "top",
   "position": "top",
-  "height": 34,
+  "height": 40,
   // "width": 1350,
   "margin": "3, 0, 2, 0",
   // Choose the order of the modules
@@ -18,8 +18,8 @@
     "custom/separator",
     "network",
     "custom/recorder",
-    "custom/audiorec",
-    "wlr/taskbar"
+    // "wlr/taskbar",
+    "custom/audiorec"
   ],
   "modules-center": ["tray", "mpd"],
   "modules-right": [
@@ -61,20 +61,24 @@
     "tooltip": false
   },
   "hyprland/workspaces": {
-    "format": "{icon}",
+    "format": "{icon}. {windows}",
     "format-icons": {
-      "1": "1.",
-      "2": "2.",
-      "3": "3.",
-      "4": "4.",
-      "5": "5.",
-      "6": "6.",
-      "7": "7.",
-      "8": "8.",
-      "9": "9.",
+      "1": "1",
+      "2": "2",
+      "3": "3",
+      "4": "4",
+      "5": "5",
+      "6": "6",
+      "7": "7",
+      "8": "8",
+      "9": "9",
       "urgent": "",
       "focused": "",
       "default": ""
+    },
+    "workspace-taskbar": {
+      "enable": true,
+      "format": "{icon}"
     }
   },
   "custom/language": {
@@ -225,10 +229,6 @@
     "exec": "echo '{\"class\": \"audio recording\"}'",
     "exec-if": "pgrep ffmpeg"
   },
-  "hyprland/language": {
-    "format": "  {short}",
-    "keyboard-name": "at-translated-set-2-keyboard"
-  },
   "wlr/taskbar": {
       // "all-outputs": true,
       // "format": "{icon} {title} {short_state}",
@@ -238,4 +238,8 @@
       "on-click-middle": "close",
       "on-click-right": "fullscreen"
   },
+  "hyprland/language": {
+    "format": "  {short}",
+    "keyboard-name": "at-translated-set-2-keyboard"
+  }
 }
